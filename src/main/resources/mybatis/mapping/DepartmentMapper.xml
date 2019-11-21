@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhang.mapper.DepartmentMapper">
+    <select id="findAll" resultType="department">
+    select * from department
+  </select>
+
+    <insert id="createDepartment" parameterType="com.zhang.entity.Department" useGeneratedKeys="true" keyProperty="id">
+        insert into department(department_name) values (#{departmentName})
+    </insert>
+    <update id="updateDepartment">
+        update department set department_name=#{departmentName} where id=#{id}
+    </update>
+    <delete id="deleteDepartmentById">
+        delete from department where id=#{id}
+    </delete>
+</mapper>
+

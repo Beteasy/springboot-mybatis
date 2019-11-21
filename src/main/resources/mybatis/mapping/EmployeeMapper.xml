@@ -6,6 +6,11 @@
     <select id="findEmployeeById" resultType="employee">
     select * from employee where id = #{id}
   </select>
+
+    <select id="findAll" resultType="employee">
+    select * from employee
+  </select>
+
     <insert id="createEmployee" parameterType="com.zhang.entity.Employee" useGeneratedKeys="true" keyProperty="id">
         insert into employee(last_name,gender,email) values (#{lastName},#{gender},#{email})
     </insert>

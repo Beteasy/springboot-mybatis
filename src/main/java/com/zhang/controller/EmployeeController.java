@@ -1,5 +1,6 @@
 package com.zhang.controller;
 
+import com.zhang.dto.EmployeeDTO;
 import com.zhang.entity.Employee;
 import com.zhang.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public Employee findById(@PathVariable("id") int id) {
+    public EmployeeDTO findById(@PathVariable("id") int id) {
         return employeeMapper.findEmployeeById(id);
     }
 

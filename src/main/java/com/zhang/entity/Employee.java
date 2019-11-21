@@ -3,14 +3,25 @@ package com.zhang.entity;
 public class Employee {
     private int id;
 
+    private int dId;
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
+                ", dId=" + dId +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public void setdId(int dId) {
+        this.dId = dId;
+    }
+
+    public int getdId() {
+        return dId;
     }
 
     private String lastName;

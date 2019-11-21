@@ -7,14 +7,22 @@
     select * from employee where id = #{id}
   </select>
 
+    <select id="findByIdMap" resultType="map">
+    select * from employee where id = #{id}
+  </select>
+
     <select id="findAll" resultType="employee">
     select * from employee
   </select>
 
+    <select id="findAllMapList" resultType="map">
+    select * from employee
+  </select>
+
     <insert id="createEmployee" parameterType="com.zhang.entity.Employee" useGeneratedKeys="true" keyProperty="id">
-        insert into employee(last_name,gender,email) values (#{lastName},#{gender},#{email})
+        insert into employee(dId,last_name,gender,email) values (#{dId},#{lastName},#{gender},#{email})
     </insert>
     <update id="updateEmployee">
-        update employee set last_name=#{lastName},gender=#{gender},email=#{email} where id=#{id}
+        update employee set dId=#{dId},last_name=#{lastName},gender=#{gender},email=#{email} where id=#{id}
     </update>
 </mapper>

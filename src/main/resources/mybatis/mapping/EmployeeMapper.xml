@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhang.mapper.EmployeeMapper">
+    <select id="findEmployeeById" resultType="employee">
+    select * from employee where id = #{id}
+  </select>
+    <insert id="createEmployee" parameterType="com.zhang.entity.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employee(last_name,gender,email) values (#{lastName},#{gender},#{email})
+    </insert>
+    <update id="updateEmployee">
+        update employee set last_name=#{lastName},gender=#{gender},email=#{email} where id=#{id}
+    </update>
+</mapper>

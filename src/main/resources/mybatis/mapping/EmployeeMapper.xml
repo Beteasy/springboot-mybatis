@@ -33,4 +33,11 @@
     <update id="updateEmployee">
         update employee set dId=#{dId},last_name=#{lastName},gender=#{gender},email=#{email} where id=#{id}
     </update>
+
+    <insert id="batchSave">
+        insert into employee(dId,last_name,gender,email) values
+        <foreach collection="employees" item="emp" separator=",">
+            (#{emp.dId},#{emp.lastName},#{emp.gender},#{emp.email})
+        </foreach>
+    </insert>
 </mapper>

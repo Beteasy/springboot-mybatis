@@ -1,6 +1,24 @@
 package com.zhang.entity;
 
 public class Employee {
+    public Employee(int dId, String lastName, int gender, String email) {
+        this.dId = dId;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    public Employee(int id, int dId, String lastName, int gender, String email) {
+        this.id = id;
+        this.dId = dId;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    public Employee() {
+    }
+
     private int id;
 
     private int dId;

@@ -2,10 +2,7 @@ package com.zhang.mapper;
 
 import com.zhang.dto.EmployeeDTO;
 import com.zhang.entity.Employee;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.MapKey;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -23,5 +20,7 @@ public interface EmployeeMapper {
     Map<String,Object> findByIdMap(Integer id);
     @MapKey("id")
     Map<Integer,Employee> findAllMapList();
+
+    void batchSave(@Param("employees") List<Employee> employees);
 
 }

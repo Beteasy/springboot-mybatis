@@ -7,6 +7,20 @@
     select * from department
   </select>
 
+    <resultMap id="findIdMap" type="com.zhang.dto.DepartmentDTO">
+        <id  column="id" property="id"/>
+        <result column="department_name" property="departmentName"/>
+        <collection property="employees" ofType="com.zhang.entity.Employee">
+            <id column="eId" property="id"/>
+            <result column="gender" property="gender"/>
+            <result column="email" property="email"/>
+            <result column="last_name" property="lastName"/>
+        </collection>
+    </resultMap>
+    <select id="findById" resultMap="findIdMap">
+    SELECT d.id id,d.department_name department_name,e.id eId,e.last_name last_name ,e.gender gender,e.email email FROM department d LEFT JOIN employee e ON e.dId=d.id WHERE d.id=#{id};
+  </select>
+
     <insert id="createDepartment" parameterType="com.zhang.entity.Department" useGeneratedKeys="true" keyProperty="id">
         insert into department(department_name) values (#{departmentName})
     </insert>
